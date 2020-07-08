@@ -1,5 +1,8 @@
 pipeline{
     agent any
+    environment{
+        CC = 'clang'
+    }
     tools {
 		maven 'mnv-3.6.3'
     }
@@ -16,10 +19,15 @@ pipeline{
             }
         }
         stage("Example"){
+            environment{
+                DEBUG_FLAGS = '-g'
+            }
             steps{
                 echo "Running ${env.BUILD_NUMBER} on ${env.JENKINS_URL}" //方法1
                 echo "Running $env.BUILD_NUMBER on $env.JENKINS_URL" //方法2
                 echo "Running ${BUILD_NUMBER} on ${JENKINS_URL}" //方法3
+                sh "${CC} ${DEBUG_FLAGS}"
+
             }
         }
         
