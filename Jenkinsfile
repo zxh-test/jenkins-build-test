@@ -17,9 +17,9 @@ pipeline{
         }
         stage("Example"){
             steps{
-                echo "Running ${env.BUIL_NUMBER} on ${env.JENKINS_URL}" //方法1
-                echo "Running $env.BUILD_BUMBER on $env.JENKINS_URL" //方法2
-                echo "Running ${BUILD_NUMBER} on $JENKIINS_URL" //方法3
+                echo "Running ${env.BUILD_NUMBER} on ${env.JENKINS_URL}" //方法1
+                echo "Running $env.BUILD_NUMBER on $env.JENKINS_URL" //方法2
+                echo "Running ${BUILD_NUMBER} on ${JENKINS_URL}" //方法3
             }
         }
         
