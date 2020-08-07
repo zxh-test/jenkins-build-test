@@ -1,14 +1,14 @@
 pipeline {
     agent none
-    tools{
-        maven 'mv3.6.3'
-    }
 
     stages {
         stage('build') {
             agent {label "master"}
+            tools {maven 'mv3.6.3'}
             steps {
                 echo '=========build================'
+                sh "mvn clean package spring-boot:repackage"
+                sh "printenv"
             }
             post{
             success{
@@ -19,8 +19,11 @@ pipeline {
         
         stage("deploy"){
             agent {label "my-mac"}
+            when {
+                beforeAgent true
+            }
             steps{
-                echo '=========build================'
+                echo '=========deploy================'
             }
         }
     }
