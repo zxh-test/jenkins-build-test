@@ -19,9 +19,6 @@ pipeline {
         
         stage("deploy"){
             agent {label "my-mac"}
-            when {
-                beforeAgent true
-            }
             steps{
                 echo '=========deploy================'
             }
