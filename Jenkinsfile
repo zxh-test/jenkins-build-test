@@ -7,7 +7,7 @@ pipeline {
             tools {maven 'mv3.6.3'}
             steps {
                 echo '=========build================'
-                sh "mvn clean package spring-boot:repackage"
+                //sh "mvn clean package spring-boot:repackage"
                 sh "printenv"
             }
             post{
