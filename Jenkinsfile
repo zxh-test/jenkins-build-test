@@ -1,10 +1,10 @@
 pipeline {
-    agent none
+    agent any
+    tools {maven 'mv3.6.3'}
 
     stages {
         stage('build') {
             agent {label "master"}
-            tools {maven 'mv3.6.3'}
             steps {
                 echo '=========build================'
                 //sh "mvn clean package spring-boot:repackage"
